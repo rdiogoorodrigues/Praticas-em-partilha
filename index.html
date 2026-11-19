@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-PT"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Percurso, mapa e facilitadores de conversa da caminhada Práticas em Partilha, no 3º Encontro de Outono da APMGF em Aveiro.">
+<title>Caminhada Práticas em Partilha</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Yellowtail&display=swap">
+<style>
+/* Identidade do 3º Encontro de Outono: papel creme, azul-marinho, terracota. Página de leitura numa coluna; mapa em destaque. */
+:root{
+  --paper:#f6f0e6; --card:#fbf7f0; --ink:#17325a; --ink2:#2e4b74; --terra:#b9612f; --sea:#a9c3cd; --mut:#5d6b7c; --line:#e3d9c8;
+  --sans:"Source Sans 3","Segoe UI",system-ui,sans-serif; --script:"Yellowtail","Brush Script MT",cursive;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{background:var(--paper)}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.55 var(--sans)}
+.wrap{max-width:760px;margin:0 auto;padding-inline:18px;padding-block:28px 56px;display:flex;flex-direction:column;gap:30px}
+header{display:flex;flex-direction:column;gap:6px}
+.eyebrow{font:700 13px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--terra);margin:0}
+h1{font:900 clamp(34px,7vw,52px)/1 var(--sans);margin:0;letter-spacing:-.02em;text-wrap:balance}
+.script{font:400 clamp(26px,5vw,34px)/1.1 var(--script);color:var(--ink);margin:0}
+.lead{margin:6px 0 0;max-width:62ch;color:var(--ink2)}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.facts li{border:1.5px solid var(--ink);border-radius:99px;padding:4px 12px;font-weight:700;font-size:15px;font-variant-numeric:tabular-nums}
+.mapbox{background:var(--card);border-radius:10px;overflow:hidden;box-shadow:0 1px 0 var(--line),0 10px 30px rgba(23,50,90,.08)}
+.map{display:block;width:100%;height:auto}
+.mapnote{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 16px;padding:10px 14px;font-size:14px;color:var(--mut);border-top:1px solid var(--line)}
+.mapnote a{color:var(--terra);font-weight:700}
+h2{font:900 24px/1.1 var(--sans);margin:0 0 12px;letter-spacing:-.01em}
+.stops{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0;position:relative}
+.stops::before{content:"";position:absolute;left:21px;top:22px;bottom:22px;border-left:3px dashed var(--sea)}
+.stop{display:grid;grid-template-columns:44px 1fr;gap:14px;padding-block:12px;position:relative}
+.badge{width:44px;height:44px;border-radius:50%;background:var(--terra);color:var(--paper);display:grid;place-items:center;font:900 20px var(--sans);box-shadow:0 0 0 5px var(--paper)}
+.badge.start{background:var(--ink)}
+.sbody{min-width:0}
+.when{margin:0;font:700 13px var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--mut);font-variant-numeric:tabular-nums}
+.stop h3{margin:2px 0 4px;font:900 20px/1.2 var(--sans)}
+.blurb{margin:0 0 10px;color:var(--ink2);max-width:62ch}
+.fac{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.fac li{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px 14px;font-weight:600;line-height:1.35}
+@media (max-width:560px){.fac{grid-template-columns:1fr}}
+.sub{margin:-6px 0 12px;color:var(--mut)}
+.note{margin:12px 0 0;font-size:15px;color:var(--terra);font-weight:700}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.btn{font:700 16px var(--sans);border-radius:99px;padding:12px 22px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.btn.primary{background:var(--terra);color:var(--paper);border:0}
+.btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+.btn:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+footer{font-size:13px;color:var(--mut);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body>
+<main class="wrap">
+  <header>
+    <p class="eyebrow">3º Encontro de Outono APMGF · Aveiro</p>
+    <h1>Práticas em Partilha</h1>
+    <p class="script">todos temos algo da nossa prática para partilhar</p>
+    <p class="lead">Saímos do auditório e conversamos a caminhar, à maneira do Walk with a Doc. Passamos por quatro sítios de Aveiro que também falam de pontes, de ideias fora da caixa e de identidade. O que se diz pelo caminho vale tanto como o que se diz no palco.</p>
+  </header>
+
+  <ul class="facts" aria-label="Resumo do percurso">
+    <li>Circuito de 3,2 km</li><li>~45 min a andar, ~1 h com paragens</li><li>Plano, com calçada</li><li>Escadas no túnel das Pontes</li>
+  </ul>
+
+  <section class="mapbox" aria-label="Mapa do percurso">
+    <svg viewBox="100 100 1300 830" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pgt" class="map">
+<title id="pgt">Mapa do percurso em circuito: Centro de Congressos, Pontes, Ponte do Laço, Capela de São Gonçalinho e regresso</title>
+<rect x="100" y="100" width="1300" height="830" fill="#f6f0e6"/>
+<g fill="none" stroke="#a9c3cd" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M468 496 L414 488 L324 486 L233 487 L119 491 L51 496" stroke-width="34"/>
+  <path d="M69 496 L105 437 L137 355 L169 273 L192 209 L208 155" stroke-width="30"/>
+  <path d="M289 357 L271 321 L251 273 L230 223 L212 189" stroke-width="22"/>
+  <path d="M452 482 L516 491 L652 474 L743 463 L789 468 L832 489 L896 509 L987 567 L1078 626 L1132 671 L1187 717 L1232 753 L1259 780" stroke-width="30"/>
+</g>
+<path d="M1143 676 L1232 664 L1314 717 L1278 839 L1225 846 L1211 798 L1196 753 Z" fill="#a9c3cd"/>
+<g font-family="Source Sans 3, sans-serif" font-style="italic" font-size="22" fill="#5d6b7c">
+  <text x="900" y="570" transform="rotate(34 900 570)">Canal do Cojo</text>
+  <text x="140" y="470">Canal Central</text>
+  <text x="150" y="330" transform="rotate(-70 150 330)">C. de São Roque</text>
+  <text x="250" y="300" transform="rotate(62 250 300)">Botirões</text>
+</g>
+<g font-family="Source Sans 3, sans-serif" font-weight="700" font-size="20" letter-spacing="4" fill="#5d6b7c" opacity=".75">
+  <text x="410" y="215">BEIRA-MAR</text>
+  <text x="560" y="420">CENTRO</text>
+  <text x="300" y="560">ROSSIO</text>
+  <text x="1010" y="905">GLÓRIA</text>
+</g>
+<g fill="none" stroke="#17325a" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M1279 849 L1270 858 L1259 869 L1241 864 L1218 848 L1211 821 L1207 794 L1191 773 L1164 771 L1153 748 L1146 726 L1132 712 L1105 694 L1068 658 L1032 630 L996 603 L959 576 L923 548 L887 526 L841 509 L816 502 L789 489 L761 477 L739 475 L698 482 L652 491 L607 502 L561 507 L516 507 L480 504 L468 491 L468 491 L424 475 L378 473 L337 471 L324 468 L323 437 L324 409 L326 391" stroke-width="9" stroke-dasharray="20 11"/>
+  <path d="M326 391 L305 391 L289 391 L288 373 L284 351 L271 328 L255 291 L239 250 L226 216 L216 187 L233 188 L241 200 L244 216 L264 257 L283 296 L296 318 L303 337 L308 343 L328 343 L327 368 L326 391" stroke-width="9" stroke-dasharray="20 11"/>
+  <path d="M293 312 L301 303 L306 288 L316 282 L322 283" stroke-width="7" stroke-dasharray="12 9"/>
+</g>
+<g font-family="Source Sans 3, sans-serif" font-size="20" font-weight="700" fill="#b9612f">
+  <text x="790" y="545" transform="rotate(30 790 545)">↔ ida e volta</text>
+</g>
+<g><circle cx="1280" cy="859" r="26" fill="#17325a" stroke="#f6f0e6" stroke-width="6"/><text x="1280" y="869" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-weight="900" font-size="28" fill="#f6f0e6">P</text><text x="1236" y="823" text-anchor="end" font-family="Source Sans 3, sans-serif" font-weight="700" font-size="28" fill="#17325a" paint-order="stroke" stroke="#f6f0e6" stroke-width="8" stroke-linejoin="round">Centro de Congressos</text></g>
+<g><circle cx="468" cy="491" r="26" fill="#b9612f" stroke="#f6f0e6" stroke-width="6"/><text x="468" y="501" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-weight="900" font-size="28" fill="#f6f0e6">1</text><text x="506" y="541" text-anchor="start" font-family="Source Sans 3, sans-serif" font-weight="700" font-size="28" fill="#17325a" paint-order="stroke" stroke="#f6f0e6" stroke-width="8" stroke-linejoin="round">As Pontes</text></g>
+<g><circle cx="216" cy="186" r="26" fill="#b9612f" stroke="#f6f0e6" stroke-width="6"/><text x="216" y="196" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-weight="900" font-size="28" fill="#f6f0e6">2</text><text x="196" y="146" text-anchor="start" font-family="Source Sans 3, sans-serif" font-weight="700" font-size="28" fill="#17325a" paint-order="stroke" stroke="#f6f0e6" stroke-width="8" stroke-linejoin="round">Ponte do Laço</text></g>
+<g><circle cx="322" cy="283" r="26" fill="#b9612f" stroke="#f6f0e6" stroke-width="6"/><text x="322" y="293" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-weight="900" font-size="28" fill="#f6f0e6">3</text><text x="362" y="293" text-anchor="start" font-family="Source Sans 3, sans-serif" font-weight="700" font-size="28" fill="#17325a" paint-order="stroke" stroke="#f6f0e6" stroke-width="8" stroke-linejoin="round">São Gonçalinho</text></g>
+<g transform="translate(1340 170)" font-family="Source Sans 3, sans-serif" font-weight="900" font-size="26" fill="#17325a">
+  <path d="M0 -38 L15 9 L0 0 L-15 9 Z" fill="#17325a"/><text x="0" y="40" text-anchor="middle">N</text>
+</g>
+<g transform="translate(1150 890)" font-family="Source Sans 3, sans-serif" font-size="20" fill="#5d6b7c">
+  <path d="M0 0 H200" stroke="#17325a" stroke-width="5"/><path d="M0 -10 V10 M200 -10 V10" stroke="#17325a" stroke-width="4"/>
+  <text x="100" y="-16" text-anchor="middle">200 m</text>
+</g>
+</svg>
+    <div class="mapnote"><span>Traçado do Google Maps a pé. Ida pelo Canal do Cojo, volta à Beira-Mar pela Praça do Peixe e regresso pelo mesmo caminho.</span><a href="https://www.google.com/maps/dir/Centro+de+Congressos+de+Aveiro/Pra%C3%A7a+General+Humberto+Delgado,+Aveiro/Ponte+dos+Botir%C3%B5es,+Aveiro/Capela+de+S%C3%A3o+Gon%C3%A7alinho,+Aveiro/Centro+de+Congressos+de+Aveiro/data=!4m2!4m1!3e2" target="_blank" rel="noopener">Abrir o percurso no Google Maps</a></div>
+  </section>
+
+  <section>
+    <h2>As paragens</h2>
+    <ol class="stops">
+    <li class="stop">
+      <div class="badge start" aria-hidden="true">P</div>
+      <div class="sbody">
+        <p class="when">min 0</p>
+        <h3>Centro Cultural e de Congressos</h3>
+        <p class="blurb">Antiga Fábrica Jerónimo Pereira Campos, de 1917. Saímos pelo Cais da Fonte Nova e seguimos pela margem do Canal do Cojo.</p>
+      </div>
+    </li>
+    <li class="stop">
+      <div class="badge" aria-hidden="true">1</div>
+      <div class="sbody">
+        <p class="when">min 16</p>
+        <h3>Praça Humberto Delgado, «as Pontes»</h3>
+        <p class="blurb">Eram duas pontes, a dos Arcos e a das Almas, sobre os canais Central e do Cojo. Hoje são uma só praça onde vários caminhos da cidade se cruzam.</p>
+      </div>
+    </li>
+    <li class="stop">
+      <div class="badge" aria-hidden="true">2</div>
+      <div class="sbody">
+        <p class="when">min 26</p>
+        <h3>Ponte do Laço, Cais dos Botirões</h3>
+        <p class="blurb">Ponte circular de 2006 que une as quatro margens dos canais de São Roque e dos Botirões. Faz o que as outras fazem, mas de uma forma que ninguém esquece: uns adoram, outros não.</p>
+      </div>
+    </li>
+    <li class="stop">
+      <div class="badge" aria-hidden="true">3</div>
+      <div class="sbody">
+        <p class="when">min 32</p>
+        <h3>Capela de São Gonçalinho, Beira-Mar</h3>
+        <p class="blurb">Em janeiro, os devotos pagam promessas a atirar cavacas do alto da capela. A festa entrou no Inventário Nacional do Património Cultural Imaterial em 2025.</p>
+      </div>
+    </li>
+    </ol>
+  </section>
+
+
+  <section>
+    <h2>Facilitadores de conversa</h2>
+    <p class="sub">Para quem precisar de um empurrão. Usa-os quando e como quiseres.</p>
+    <ul class="fac"><li>Que ponte falta construir na nossa prática clínica ou na nossa organização para conseguirmos cuidar melhor?</li><li>Que ideia da tua equipa começou por parecer estranha e acabou por funcionar?</li><li>O que é que a tua unidade faz que só faz sentido naquela comunidade?</li><li>Que pequena mudança na tua unidade teve mais impacto do que esperavas?</li><li>Que parceiro da comunidade (junta, escola, farmácia, IPSS) mudou a forma como trabalhas?</li><li>O que fazes fora da consulta que também é cuidar?</li><li>Se tivesses uma tarde por mês sem consultas, o que farias pela tua lista de utentes?</li><li>Que prática ouviste hoje que gostavas de levar para a tua unidade?</li></ul>
+    <p class="note">Partilha casos, não doentes: nada que identifique quem acompanhas.</p>
+  </section>
+
+
+  <section class="cta" aria-label="Guardar o percurso">
+    <a class="btn primary" href="flyer-caminhada.pdf" download="Caminhada-Praticas-em-Partilha.pdf">Descarregar o flyer (PDF)</a>
+    <a class="btn ghost" href="https://www.google.com/maps/dir/Centro+de+Congressos+de+Aveiro/Pra%C3%A7a+General+Humberto+Delgado,+Aveiro/Ponte+dos+Botir%C3%B5es,+Aveiro/Capela+de+S%C3%A3o+Gon%C3%A7alinho,+Aveiro/Centro+de+Congressos+de+Aveiro/data=!4m2!4m1!3e2" target="_blank" rel="noopener">Ver no Google Maps</a>
+  </section>
+
+  <footer>Inspirado no movimento Walk with a Doc. Se chover, a conversa segue no auditório.</footer>
+</main>
+</body></html>
